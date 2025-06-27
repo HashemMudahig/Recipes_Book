@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "images",
+			"path": "../../../recipe_book_local_database/images"
+		},
+		{
+			"name": "recipe_book",
+			"path": "../.."
+		}
+	],
+	"settings": {}
+}

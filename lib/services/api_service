@@ -1,0 +1,54 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import '../models/recipe_model.dart';
+
+class ApiService {
+  static const String baseUrl = 'http://192.168.43.24:5000';//177.10.1.242
+
+  // ✅ جلب كل الوصفات
+  static Future<List<RecipeModel>> fetchRecipes() async {
+    final response = await http.get(Uri.parse('$baseUrl/recipes'));
+
+    if (response.statusCode == 200) {
+      List data = json.decode(response.body);
+      return data.map((e) => RecipeModel.fromJson(e)).toList();
+    } else {
+      throw Exception('Failed to load recipes');
+    }
+  }
+
+  // ✅ إضافة وصفة
+  static Future<void> addRecipe(RecipeModel recipe) async {
+    final response = await http.post(
+      Uri.parse('$baseUrl/recipes'),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode(recipe.toJson()),
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to add recipe');
+    }
+  }
+
+  // ✅ تحديث وصفة
+  static Future<void> updateRecipe(RecipeModel recipe) async {
+    final response = await http.put(
+      Uri.parse('$baseUrl/recipes/${recipe.id}'),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode(recipe.toJson()),
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to update recipe');
+    }
+  }
+
+  // ✅ حذف وصفة
+  static Future<void> deleteRecipe(int id) async {
+    final response = await http.delete(Uri.parse('$baseUrl/recipes/$id'));
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to delete recipe');
+    }
+  }
+}
