@@ -32,3 +32,20 @@ The app is flexible and works with either:
 You can check or run the Flask server manually from the backend folder (if available).  
 _Optional: Add a link here if you host the server online (e.g. on Render, Railway, or PythonAnywhere)._
 
+## 🧠 Backend (Flask Server)
+
+The backend server is written in **Python using Flask** and lives inside the `/backend` folder.
+
+### 🔗 Features:
+- Handles all CRUD operations for recipes
+- Communicates with the Flutter app via REST API
+- Optional: Connect to SQLite or mock in-memory list
+
+### ▶️ To Run the Server Locally:
+
+```bash
+cd backend
+pip install -r requirements.txt
+python app.py
+
+
