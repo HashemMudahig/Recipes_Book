@@ -1,16 +1,34 @@
-# recipe_book
+# Recipe_book
 
-A new Flutter project.
+# 🍲 Recipes Book App
 
-## Getting Started
+A cross-platform Flutter app for managing recipes with a clean interface and strong architecture.  
+The app allows users to create, view, update, and delete recipes (CRUD operations), and supports both local and remote data sources.
 
-This project is a starting point for a Flutter application.
+## ✨ Features
 
-A few resources to get you started if this is your first Flutter project:
+- ✅ **CRUD operations**: Add, edit, delete, and view recipes
+- ✅ **SQLite database**: Offline storage for recipes on the device
+- ✅ **Python REST API**: Built with Flask for remote data syncing
+- ✅ **Provider**: For efficient state management
+- ✅ **FutureBuilder**: Used to load and render async data properly
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🔄 Dual Data Source System
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The app is flexible and works with either:
+
+1. **Local Storage (SQLite)**: Used when there's no internet or server is down
+2. **Remote Server (Flask API)**: If server is running, the app fetches and pushes data via HTTP
+
+> If the Flask server is **online**, it will sync data from/to it.  
+> If the server is **offline**, the app gracefully falls back to local SQLite.
+
+## 🔌 Backend API Info
+
+- Built with **Python + Flask**
+- Handles all recipe-related REST API endpoints
+- Hosted locally or on any server
+
+You can check or run the Flask server manually from the backend folder (if available).  
+_Optional: Add a link here if you host the server online (e.g. on Render, Railway, or PythonAnywhere)._
+
